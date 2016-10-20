@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 // using statements to connect to EF DB
 using COMP229_F2016_MidTerm_300861065.Models;
 using System.Web.ModelBinding;
+using System.Linq.Dynamic;
 
 namespace COMP229_F2016_MidTerm_300861065
 {
@@ -17,7 +18,13 @@ namespace COMP229_F2016_MidTerm_300861065
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetTodos();
+            if (!IsPostBack)
+            {
+                Session["SortColumn"] = "StudentId";
+                Session["SortDirection"] = "ASC";
+                // Get the student data
+                this.GetTodos();
+            }
         }
 
         private void GetTodos()

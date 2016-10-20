@@ -32,7 +32,6 @@ namespace COMP229_F2016_MidTerm_300861065
                 // bind the result to the Todos GridView
                 TodoGridView.DataSource = Todos.ToList();
                 TodoGridView.DataBind();
-                
             }
         }
 

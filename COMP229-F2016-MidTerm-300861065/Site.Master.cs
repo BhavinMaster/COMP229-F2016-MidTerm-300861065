@@ -32,6 +32,23 @@ namespace COMP229_F2016_MidTerm_300861065
                 case "Todo List":
                     todo.Attributes.Add("class", "active");
                     break;
+                case "Login":
+                    Login.Attributes.Add("class", "active");
+                    break;
+            }
+            checkloginlogout();
+        }
+        public void checkloginlogout()
+        {
+            if (System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Login.Visible = false;
+                Logout.Visible = true;
+            }
+            else
+            {
+                Logout.Visible = false;
+                Login.Visible = true;
             }
         }
     }

@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="COMP229_F2016_MidTerm_300861065.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <!--Subject : Web Application
+        Name: Bhavin Master
+        Student No: 300861065
+        File Name : Registration.aspx-->
     <div class="container">
         <div class="row">
             <div class="col-md-offset-4 col-md-4">

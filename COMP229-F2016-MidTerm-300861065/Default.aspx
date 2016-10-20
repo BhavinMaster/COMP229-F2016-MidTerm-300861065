@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="COMP229_F2016_MidTerm_300861065.Default" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <!--Subject : Web Application
+        Name: Bhavin Master
+        Student No: 300861065
+        File Name : Default.aspx-->
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">

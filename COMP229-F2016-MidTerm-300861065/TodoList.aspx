@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="Todo List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodoList.aspx.cs" Inherits="COMP229_F2016_MidTerm_300861065.TodoList" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+     <!--Subject : Web Application
+        Name: Bhavin Master
+        Student No: 300861065
+        File Name : TodoList.aspx-->
          <div class="container">
         <div class="row">
             <div class="col-md-offset-2 col-md-8">
@@ -9,12 +13,25 @@
                 <a href="TodoDetails.aspx" class="btn btn-success btn-sm">
                     <i class="fa fa-plus"></i> Add Todo
                 </a>
+                <label for="PageSizeDropDownList">Recordes per page : </label>
+                <asp:DropDownList ID="PageSizeDropDownList" runat="server"
+                    AutoPostBack="true" CssClass="btn btn-default btn-sm dropdown-toggle"
+                    OnSelectedIndexChanged="PageSizeDropDownList_SelectedIndexChanged">
+                    <asp:ListItem Text="3" Value="3" />
+                    <asp:ListItem Text="5" Value="5" />
+                    <asp:ListItem Text="10" Value="10" />
+                    <asp:ListItem Text="All" Value="10000" />
+
+                </asp:DropDownList>
                 <asp:GridView ID="TodoGridView" runat="server" AutoGenerateColumns="false"
                     CssClass="table table-bordered table-striped table-hover" DataKeyNames="TodoID"
-                    OnRowDeleting="TodoGridView_RowDeleting">
+                    OnRowDeleting="TodoGridView_RowDeleting"
+                    AllowPaging="true" PageSize="3"
+                    OnPageIndexChanging="TodoGridView_PageIndexChanging" AllowSorting="true"
+                    OnSorting="TodoGridView_Sorting" >
                     <Columns>
-                        <asp:BoundField DataField="TodoDescription" HeaderText="Todo Description" Visible="true" />
-                        <asp:BoundField DataField="TodoNotes" HeaderText="Todo Notes" Visible="true" />
+                        <asp:BoundField DataField="TodoDescription" HeaderText="Todo Description" Visible="true" SortExpression="TodoDescription" />
+                        <asp:BoundField DataField="TodoNotes" HeaderText="Todo Notes" Visible="true" SortExpression="TodoNotes"/>
                         <asp:BoundField DataField="Completed" HeaderText="Completed" Visible="true" />
 
                         <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit"

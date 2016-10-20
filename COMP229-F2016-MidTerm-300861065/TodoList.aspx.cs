@@ -64,5 +64,28 @@ namespace COMP229_F2016_MidTerm_300861065
 
 
         }
+
+        protected void TodoGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            TodoGridView.PageIndex = e.NewPageIndex;
+
+            this.GetTodos();
+        }
+
+        protected void TodoGridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            Session["SortColumn"] = e.SortExpression;
+
+            this.GetTodos();
+
+            Session["SortDirection"] = Session["SortDirection"].ToString() == "ASC" ? "DESC" : "ASC";
+        }
+
+        protected void PageSizeDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TodoGridView.PageSize = Convert.ToInt32(PageSizeDropDownList.SelectedValue);
+
+            this.GetTodos();
+        }
     }
 }
